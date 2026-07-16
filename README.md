@@ -49,26 +49,6 @@ Gesture-Controlled-Simon-Says/
 └── README.md
 ```
 
----
-
-## 📸 Demo
-
-Add screenshots or a short gameplay GIF here.
-
-Example:
-
-```
-images/gameplay.png
-```
-
-or
-
-```
-images/demo.gif
-```
-
----
-
 ## ⚙️ Installation
 
 Clone the repository
@@ -119,14 +99,6 @@ This project demonstrates:
 - OpenCV Image Processing
 - MediaPipe Gesture Detection
 - Python Application Development
-
----
-
-## 🤝 Contributing
-
-Contributions, suggestions, and improvements are always welcome.
-
-If you'd like to enhance the project, feel free to fork the repository and submit a pull request.
 
 ---
 
