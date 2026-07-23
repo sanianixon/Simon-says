@@ -1,107 +1,159 @@
-# 🎮 Gesture-Controlled Simon Says
+# Gesture-Controlled Simon Says
 
-An interactive version of the classic **Simon Says** memory game where players use **hand gestures instead of keyboard or mouse inputs**. Built using **Python, OpenCV, and MediaPipe**, the game tracks hand movements in real time and challenges players to remember and repeat increasingly complex gesture sequences.
+An interactive Simon Says memory game controlled through real-time hand gestures.
 
----
+Instead of using a keyboard or mouse, players perform Rock, Paper and Scissors gestures in front of their webcam. The game detects each gesture using OpenCV and MediaPipe and checks whether the player correctly repeats the generated sequence.
 
-## ✨ Features
+## Features
 
-- 🖐️ Real-time hand gesture recognition using MediaPipe
-- 📷 Webcam-based gameplay with no external hardware required
-- 🎯 Interactive Simon Says memory game
-- 📈 Increasing difficulty as the game progresses
-- ⚡ Real-time gesture detection and feedback
-- 🎨 Clean and engaging user interface
-- 🧠 Tests memory, concentration, and reaction speed
+- Real-time webcam input
+- Hand tracking using MediaPipe
+- Rock, Paper and Scissors gesture recognition
+- Gesture-based gameplay without keyboard controls
+- Randomly generated gesture sequences
+- Increasing difficulty after every successful level
+- Real-time correct and incorrect feedback
+- Automatic game-over detection
+- Interactive interface built with Pygame
 
----
+## How the Game Works
 
-## 🛠️ Tech Stack
+1. The player clicks the game window to begin.
+2. The game generates the first gesture in the sequence.
+3. The player performs the displayed gesture in front of the webcam.
+4. MediaPipe detects the hand landmarks.
+5. The application classifies the gesture as Rock, Paper or Scissors.
+6. If the gesture is correct, the sequence becomes one step longer.
+7. The player must repeat the complete sequence.
+8. The game ends when an incorrect gesture is detected.
+
+Example:
+
+```text
+Level 1: Rock
+Level 2: Rock → Paper
+Level 3: Rock → Paper → Scissors
+```
+
+## Gesture Recognition
+
+The application uses MediaPipe to identify hand landmarks through the webcam.
+
+Finger positions are then analysed to classify three gestures:
+
+- **Rock:** All fingers are closed
+- **Paper:** All fingers are open
+- **Scissors:** Index and middle fingers are open
+
+The recognised gesture is compared with the current gesture expected by the game.
+
+## Technology Stack
 
 - Python
 - OpenCV
 - MediaPipe
-- NumPy
+- Pygame
+- Threading
+- Computer vision
 
----
+## Project Structure
 
-## 🚀 How It Works
-
-1. Launch the application.
-2. The webcam detects and tracks your hand in real time.
-3. The game displays a sequence of hand gestures.
-4. Repeat the sequence using your own hand gestures.
-5. Successfully completing a sequence unlocks the next level with an additional gesture.
-6. The game continues until an incorrect gesture is detected.
-
----
-
-## 📂 Project Structure
-
-```
-Gesture-Controlled-Simon-Says/
-│
+```text
+Simon-says/
 ├── main.py
-├── game.py
-├── gesture_detector.py
-├── assets/
-├── requirements.txt
 └── README.md
 ```
 
-## ⚙️ Installation
+The current implementation is contained in a single Python file. It handles:
 
-Clone the repository
+- Webcam access
+- Hand landmark detection
+- Gesture classification
+- Sequence generation
+- Game progression
+- Pygame interface and feedback
 
-```bash
-git clone https://github.com/yourusername/gesture-controlled-simon-says.git
-```
+## Installation
 
-Navigate to the project directory
-
-```bash
-cd gesture-controlled-simon-says
-```
-
-Install dependencies
+Clone the repository:
 
 ```bash
-pip install -r requirements.txt
+git clone https://github.com/sanianixon/Simon-says.git
 ```
 
-Run the project
+Open the project directory:
+
+```bash
+cd Simon-says
+```
+
+Create a virtual environment:
+
+```bash
+python -m venv venv
+```
+
+Activate it on Windows:
+
+```bash
+venv\Scripts\activate
+```
+
+Install the required packages:
+
+```bash
+pip install pygame opencv-python mediapipe
+```
+
+Run the game:
 
 ```bash
 python main.py
 ```
 
----
+## Requirements
 
-## 📈 Future Improvements
+- Python
+- A working webcam
+- Permission for Python to access the camera
+- A well-lit environment for more reliable gesture detection
 
-- Multiple difficulty levels
-- Custom gesture sets
-- Score leaderboard
-- Sound effects and animations
-- Multiplayer mode
-- AI-generated gesture sequences
+## What This Project Demonstrates
 
----
+- Real-time computer vision
+- Hand landmark detection
+- Gesture classification
+- Webcam processing with OpenCV
+- Human-computer interaction
+- Event-driven game development
+- Multithreading
+- Sequence and memory-game logic
+- Pygame interface development
 
-## 💡 Learning Outcomes
+## Current Limitations
 
-This project demonstrates:
+- Gesture recognition depends on lighting and camera quality
+- Only Rock, Paper and Scissors gestures are supported
+- Hand orientation may affect recognition accuracy
+- The application currently supports one hand at a time
+- The game must be run locally because it requires webcam access
 
-- Computer Vision
-- Real-time Hand Tracking
-- Human-Computer Interaction
-- Game Logic Development
-- OpenCV Image Processing
-- MediaPipe Gesture Detection
-- Python Application Development
+## Future Improvements
 
----
+- Add a live camera preview
+- Improve gesture-classification accuracy
+- Support left- and right-handed users more reliably
+- Add more gesture types
+- Add difficulty levels
+- Include sound effects and animations
+- Display the current score and highest level
+- Add a restart button
+- Separate camera, gesture and game logic into different modules
+- Package the application as a desktop executable
 
-## 📜 License
+## Author
 
-This project is intended for educational and learning purposes.
+Sania Nixon
+
+- GitHub: [sanianixon](https://github.com/sanianixon)
+- LinkedIn: [Sania Nixon](https://linkedin.com/in/sania-nixon)
